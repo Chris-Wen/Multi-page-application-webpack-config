@@ -1,0 +1,174 @@
+@mixin center {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+@mixin border-radius ($radius) {
+    border-radius: $radius;
+}
+
+@mixin extend-click {
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+    }
+}
+
+@mixin expand-click {
+    &::after {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+    }
+}
+
+
+@mixin box-sizing {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+@mixin no-wrap {                    //单行溢出身略号
+    text-overflow: ellipsis;
+    overflow: hidden;   
+    white-space: nowrap;
+}
+
+@mixin lines-nowrap($lines) {       //多行溢出身略号
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+}
+
+@mixin text-justify ($line) {
+    line-height: $line;
+    text-align: justify;
+}
+
+@mixin color-grad-btn {
+    text-align: center;
+    color:white; 
+    background: -webkit-gradient(linear, left top, right top, from(#FFC50C), to(#FF6516)); 
+    background: linear-gradient(to right, #FFC50C, #FF6516);
+}
+
+@mixin flex-around {
+	display:-ms-flexbox;
+	display:-webkit-box;
+	display:flex;
+	-ms-justify-content: space-around;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
+	-webkit-box-orient:horizontal;
+	-webkit-box-direction:normal;
+	    -ms-flex-flow:row wrap;
+	        flex-flow:row wrap;
+}
+
+@mixin flex-between {
+	display:-ms-flexbox;
+	display:-webkit-box;
+	display:flex;
+	-ms-flex-pack:justify;
+	-webkit-box-pack:justify;
+	        justify-content:space-between;
+	-webkit-box-orient:horizontal;
+	-webkit-box-direction:normal;
+	    -ms-flex-flow:row wrap;
+	        flex-flow:row wrap;
+}
+
+@mixin flex-colum {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+@mixin color-background {
+    background-color: $text-color-w;
+}
+
+@mixin background-image-center {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+@mixin text-align-justify ($size){
+    width: $size + em;
+    text-align:justify;  
+    text-align-last:justify;  
+}
+
+@mixin background-image($icon) {
+    background-image: $icon;
+    @include background-image-center;
+}
+
+@mixin big-background-image($url) {
+    background-image: $url;
+    background-size: contain;
+    background-repeat: repeat-x;
+}
+
+@mixin mask-bg {
+    background: rgba(0, 0, 0, .6);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+
+@mixin animate-wrapper($distance) {
+    @keyframes move
+	{
+		0%
+		{
+			-webkit-transform:translateY(0px);
+					transform:translateY(0px);
+		}
+		50%
+		{
+			-webkit-transform:translateY(- ($distance) );
+					transform:translateY(- ($distance) );
+		}
+		50.001%
+		{
+			-webkit-transform:translateY( ($distance)/2 );
+					transform:translateY( ($distance)/2 );
+		}
+		100%
+		{
+			-webkit-transform:translateY(0px);
+					transform:translateY(0px);
+		}
+	}
+}
+
+
+@mixin animate-rotate($time) {
+    animation: $time linear infinite turn;
+    @keyframes turn {
+        from{ transform: rotate(0deg) };
+        to{ transform: rotate(360deg) }
+    }
+}
