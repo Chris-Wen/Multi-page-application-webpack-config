@@ -1,4 +1,4 @@
-# copyright-trade-platform
+# Multi-page application webpack config
 
 > A Vue.js project
 
