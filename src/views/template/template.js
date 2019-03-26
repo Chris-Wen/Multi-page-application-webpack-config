@@ -1,12 +1,5 @@
-import Vue from 'Vue'
-import template from './template.vue'
-// import router from './router'
+import '@main'
 
-Vue.config.productionTip = false
+import './template.css'
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-//   router,
-  render: h => h(template)
-})
+console.log("template")
